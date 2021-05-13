@@ -46,6 +46,11 @@ var type = ($("#hidItemIDSave").val() == "") ? "POST" : "PUT";
 });
 
 
+
+
+
+
+
 function onItemSaveComplete(response, status)
 { 
 if (status == "success") 
@@ -124,20 +129,24 @@ if (status == "success")
  
  
  
-
-
+ 
 
 
  
+
 // UPDATE==========================================
-$(document).on("click", ".btnUpdate", function(event)
+$(document).on("click", ".btnUpdate", function(event) 
 { 
-$("#hidItemIDSave").val($(this).data("itemid")); 
+ $("#hidItemIDSave").val($(this).closest("tr").find('#hidItemIDUpdate').val()); 
  $("#itemCode").val($(this).closest("tr").find('td:eq(0)').text()); 
  $("#itemName").val($(this).closest("tr").find('td:eq(1)').text()); 
  $("#itemPrice").val($(this).closest("tr").find('td:eq(2)').text()); 
  $("#itemDesc").val($(this).closest("tr").find('td:eq(3)').text()); 
 });
+
+
+
+
 
 // CLIENT-MODEL================================================================
 function validateItemForm() 

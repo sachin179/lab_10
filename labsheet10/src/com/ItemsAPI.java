@@ -14,37 +14,17 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/ItemsAPI") 
 public class ItemsAPI extends HttpServlet 
 { 
+	private static final long serialVersionUID =1L;
+	
 	Item itemObj = new Item();
 
-	
-	
-	
-	
-	
-	
-	
+	public ItemsAPI() {
 		
+		super(); 
+	}
 	
-	
- //Your code
-
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
-			 throws ServletException, IOException
-			 
-			 {
-			 String output = itemObj.insertItem(request.getParameter("itemCode"), 
-			 request.getParameter("itemName"), 
-			request.getParameter("itemPrice"), 
-			request.getParameter("itemDesc")); 
-			response.getWriter().write(output); 
-		}
-		
-		
-			 
-	
-			
 	// Convert request parameters to a Map
+	
 	private static Map getParasMap(HttpServletRequest request) 
 	{ 
 	 Map<String, String> map = new HashMap<String, String>(); 
@@ -66,6 +46,38 @@ public class ItemsAPI extends HttpServlet
 		 } 
 		return map; 
 		}
+	
+	
+	
+	
+		
+	
+	
+ //Your code
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			 throws ServletException, IOException
+			 
+			 {
+			 String output = itemObj.insertItem(request.getParameter("itemCode"), 
+			 request.getParameter("itemName"), 
+			request.getParameter("itemPrice"), 
+			request.getParameter("itemDesc")); 
+			response.getWriter().write(output); 
+		}
+		
+		
+			 
+	
+			
+
 	
 	
 	

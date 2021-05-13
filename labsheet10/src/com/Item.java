@@ -39,6 +39,7 @@ public String readItems()
  Statement stmt = con.createStatement(); 
  ResultSet rs = stmt.executeQuery(query); 
  // iterate through the rows in the result set
+ 
  while (rs.next()) 
  { 
  String itemID = Integer.toString(rs.getInt("itemID")); 
@@ -48,14 +49,12 @@ public String readItems()
  rs.getDouble("itemPrice")); 
  String itemDesc = rs.getString("itemDesc"); 
  // Add into the html table
- output += "<tr><td><input id='hidItemIDUpdate' name='hidItemIDUpdate' type='hidden' value='" + itemID
- + "'>" + itemCode + "</td>"; 
+ output += "<tr><td><input id='hidItemIDUpdate' name='hidItemIDUpdate' type='hidden' value='" + itemID+ "'>" + itemCode + "</td>"; 
  output += "<td>" + itemName + "</td>"; 
  output += "<td>" + itemPrice + "</td>"; 
  output += "<td>" + itemDesc + "</td>"; 
  // buttons
-output += "<td><input name='btnUpdate'  type='button' value='Update' class='btnUpdate btn btn-secondary'></td>"+ "<td><input name='btnRemove' type='button' value='Remove' class='btnRemove btn btn-danger'  data-itemid='"
- + itemID + "'>" + "</td></tr>"; 
+output += "<td><input name='btnUpdate'  type='button' value='update' class='btnUpdate btn btn-secondary'></td>"+ "<td><input name='btnRemove' type='button' value='Remove' class='btnRemove btn btn-danger'  data-itemid='"+ itemID + "'>" /*+ "<td><input name='btnUpdate' type='button' value='Update' class='btnUpdate btn  btn-secondary'  data-itemId='"+ itemID + "'>"*/ + "</td></tr>"; 
  } 
  con.close(); 
  // Complete the html table
@@ -90,6 +89,7 @@ public String insertItem(String code, String name,
  + " values (?, ?, ?, ?, ?)";
 		 PreparedStatement preparedStmt = con.prepareStatement(query); 
 		 // binding values
+		 
 		 preparedStmt.setInt(1, 0); 
 		 preparedStmt.setString(2, code); 
 		 preparedStmt.setString(3, name); 
